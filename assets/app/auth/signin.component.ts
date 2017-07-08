@@ -11,6 +11,7 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 export class signinComponent implements OnInit {
 
     myForm:FormGroup;
+    error:boolean;
 
     constructor(private route:ActivatedRoute,private authservice:AuthService,private router:Router) { }
 
@@ -33,7 +34,9 @@ export class signinComponent implements OnInit {
 	                	localStorage.setItem('userId', data.userId);
 	                	this.router.navigateByUrl('/main');
 	                },
-	                error => console.error('myerror')
+	                error => {
+	                	this.error = 'Invalid login credentials'
+	                }
 	            );
         this.myForm.reset();
     }

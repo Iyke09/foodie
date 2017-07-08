@@ -9,7 +9,8 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
     templateUrl: './signup.component.html'
 })
 export class signupComponent implements OnInit {
-	myForm:FormGroup;
+	myForm:FormGroup; error:boolean;
+	 error:boolean;
 
     constructor(private route:ActivatedRoute,private authservice:AuthService, private router:Router) { }
 
@@ -38,7 +39,9 @@ export class signupComponent implements OnInit {
                 	console.log(data)
                 	this.router.navigateByUrl('/main/auth/signin');
                 }
-                error => console.error('myerror')
+                error => {
+                	this.error = 'Email already exists'
+                }
             );
         this.myForm.reset();
     }

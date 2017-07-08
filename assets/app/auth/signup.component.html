@@ -7,6 +7,11 @@
 		class="w3-card-4 w3-text-green w3-white" style="width: 380px">
 		<div class="" style="padding: 25px 50px">
 <h2 class="w3-center"><b>SIGN UP</b></h2>
+
+<div class="alert alert-danger alert-dismissable" *ngIf="error">
+ <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <strong>{{error}}</strong> 
+</div>
  
 <div class="w3-row w3-section">
   <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
